@@ -22,6 +22,12 @@ approvers:
   - miekg
   - yongtang
 
+maintainers:
+  - miekg
+  - yongtang
+  - infoblox: chrisohaver, fturib
+  - google: johnbelamaric
+
 features:
   - comments
   - reviewers
