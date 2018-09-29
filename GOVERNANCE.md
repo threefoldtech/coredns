@@ -13,10 +13,16 @@ The CoreDNS community adheres to the following principles:
 
 ## Benevolent Dictator for Life
 
+The CoreDNS project has a benevolent dictator for life.
+
 A [Benevolent dictator for life](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life) is
 a single person that has a final say in any decision concerning the CoreDNS project.
 
-The benevolent dictator for live can volunteer to step down and appoint a new "dictator for life".
+The benevolent dictator for life can volunteer to step down and appoint a new "dictator for life".
+
+The current "benevolent dictator for life" is identified in the [top level OWNERS
+file](https://github.com/coredns/coredns/OWNERS) with the string `benevolent dictator for life`
+behind the name.
 
 ## Expectations from Maintainers
 
@@ -28,11 +34,10 @@ in a *reasonable* time frame, either providing insights, or assign the Pull Requ
 maintainers.
 
 Every Maintainer is listed in the top-level [OWNERS](https://github.com/coredns/coredns/OWNERS)
-file, with their Github handle and an email address. A Maintainer is also listed in a plugin
-specific OWNER file.
+file, with their Github handle and an (possible obfuscated) email address. A Maintainer is also
+listed in a plugin specific OWNER file.
 
 A Maintainer should be a member of `maintainer@coredns.io`, although this is not a hard requirement.
-
 A Maintainer that hasn't been active in the CoreDNS repository for 12 months is considered inactive.
 
 ## Becoming a Maintainers
@@ -51,7 +56,7 @@ fails to meet the principles of CoreDNS community.
 
 ## Github Project Administration
 
-The __coredns__ GitHub project maintainers team reflect the list of Maintainers.
+The __coredns__ GitHub project maintainers team reflects the list of Maintainers.
 
 ## Other Projects
 
