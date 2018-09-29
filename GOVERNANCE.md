@@ -34,8 +34,10 @@ in a *reasonable* time frame, either providing insights, or assign the Pull Requ
 maintainers.
 
 Every Maintainer is listed in the top-level [OWNERS](https://github.com/coredns/coredns/OWNERS)
-file, with their Github handle and an (possible obfuscated) email address. A Maintainer is also
-listed in a plugin specific OWNER file.
+file, with their Github handle and an (possible obfuscated) email address. Every one in the
+`reviewers` list is a Maintainer.
+
+A Maintainer is also listed in a plugin specific OWNER file.
 
 A Maintainer should be a member of `maintainer@coredns.io`, although this is not a hard requirement.
 A Maintainer that hasn't been active in the CoreDNS repository for 12 months is considered inactive.
