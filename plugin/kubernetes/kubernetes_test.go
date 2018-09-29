@@ -132,17 +132,10 @@ func (APIConnServiceTest) EpIndex(string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "172.0.0.1",
-							Hostname: "ep1a",
-						},
+						{IP: "172.0.0.1", Hostname: "ep1a"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -153,16 +146,10 @@ func (APIConnServiceTest) EpIndex(string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP: "172.0.0.2",
-						},
+						{IP: "172.0.0.2"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -173,16 +160,10 @@ func (APIConnServiceTest) EpIndex(string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP: "172.0.0.3",
-						},
+						{IP: "172.0.0.3"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -193,10 +174,7 @@ func (APIConnServiceTest) EpIndex(string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "10.9.8.7",
-							NodeName: "test.node.foo.bar",
-						},
+						{IP: "10.9.8.7", NodeName: "test.node.foo.bar"},
 					},
 				},
 			},
@@ -211,17 +189,10 @@ func (APIConnServiceTest) EndpointsList() []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "172.0.0.1",
-							Hostname: "ep1a",
-						},
+						{IP: "172.0.0.1", Hostname: "ep1a"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -232,16 +203,10 @@ func (APIConnServiceTest) EndpointsList() []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP: "172.0.0.2",
-						},
+						{IP: "172.0.0.2"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -252,16 +217,10 @@ func (APIConnServiceTest) EndpointsList() []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP: "172.0.0.3",
-						},
+						{IP: "172.0.0.3"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -272,10 +231,7 @@ func (APIConnServiceTest) EndpointsList() []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "10.9.8.7",
-							NodeName: "test.node.foo.bar",
-						},
+						{IP: "10.9.8.7", NodeName: "test.node.foo.bar"},
 					},
 				},
 			},

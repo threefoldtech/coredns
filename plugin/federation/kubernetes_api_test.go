@@ -89,17 +89,10 @@ func (APIConnFederationTest) EpIndex(string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "172.0.0.1",
-							Hostname: "ep1a",
-						},
+						{IP: "172.0.0.1", Hostname: "ep1a"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},
@@ -116,17 +109,10 @@ func (APIConnFederationTest) EndpointsList() []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "172.0.0.1",
-							Hostname: "ep1a",
-						},
+						{IP: "172.0.0.1", Hostname: "ep1a"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},

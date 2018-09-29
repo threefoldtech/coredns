@@ -496,17 +496,10 @@ var epsIndex = map[string][]*object.Endpoints{
 		Subsets: []object.EndpointSubset{
 			{
 				Addresses: []object.EndpointAddress{
-					{
-						IP:       "172.0.0.1",
-						Hostname: "ep1a",
-					},
+					{IP: "172.0.0.1", Hostname: "ep1a"},
 				},
 				Ports: []object.EndpointPort{
-					{
-						Port:     80,
-						Protocol: "tcp",
-						Name:     "http",
-					},
+					{Port: 80, Protocol: "tcp", Name: "http"},
 				},
 			},
 		},
@@ -518,11 +511,7 @@ var epsIndex = map[string][]*object.Endpoints{
 			{
 				Addresses: nil,
 				Ports: []object.EndpointPort{
-					{
-						Port:     80,
-						Protocol: "tcp",
-						Name:     "http",
-					},
+					{Port: 80, Protocol: "tcp", Name: "http"},
 				},
 			},
 		},
@@ -533,33 +522,15 @@ var epsIndex = map[string][]*object.Endpoints{
 		Subsets: []object.EndpointSubset{
 			{
 				Addresses: []object.EndpointAddress{
-					{
-						IP: "172.0.0.2",
-					},
-					{
-						IP: "172.0.0.3",
-					},
-					{
-						IP:       "172.0.0.4",
-						Hostname: "dup-name",
-					},
-					{
-						IP:       "172.0.0.5",
-						Hostname: "dup-name",
-					},
-					{
-						IP: "5678:abcd::1",
-					},
-					{
-						IP: "5678:abcd::2",
-					},
+					{IP: "172.0.0.2"},
+					{IP: "172.0.0.3"},
+					{IP: "172.0.0.4", Hostname: "dup-name"},
+					{IP: "172.0.0.5", Hostname: "dup-name"},
+					{IP: "5678:abcd::1"},
+					{IP: "5678:abcd::2"},
 				},
 				Ports: []object.EndpointPort{
-					{
-						Port:     80,
-						Protocol: "tcp",
-						Name:     "http",
-					},
+					{Port: 80, Protocol: "tcp", Name: "http"},
 				},
 			},
 		},
@@ -570,9 +541,7 @@ var epsIndex = map[string][]*object.Endpoints{
 		Subsets: []object.EndpointSubset{
 			{
 				Addresses: []object.EndpointAddress{
-					{
-						IP: "172.0.0.20",
-					},
+					{IP: "172.0.0.20"},
 				},
 				Ports: []object.EndpointPort{{Port: -1}},
 			},

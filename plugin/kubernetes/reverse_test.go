@@ -73,29 +73,13 @@ func (APIConnReverseTest) EpIndexReverse(ip string) []*object.Endpoints {
 			Subsets: []object.EndpointSubset{
 				{
 					Addresses: []object.EndpointAddress{
-						{
-							IP:       "10.0.0.100",
-							Hostname: "ep1a",
-						},
-						{
-							IP:       "1234:abcd::1",
-							Hostname: "ep1b",
-						},
-						{
-							IP:       "fd00:77:30::a",
-							Hostname: "ip6svc1ex",
-						},
-						{
-							IP:       "fd00:77:30::2:9ba6",
-							Hostname: "ip6svc1in",
-						},
+						{IP: "10.0.0.100", Hostname: "ep1a"},
+						{IP: "1234:abcd::1", Hostname: "ep1b"},
+						{IP: "fd00:77:30::a", Hostname: "ip6svc1ex"},
+						{IP: "fd00:77:30::2:9ba6", Hostname: "ip6svc1in"},
 					},
 					Ports: []object.EndpointPort{
-						{
-							Port:     80,
-							Protocol: "tcp",
-							Name:     "http",
-						},
+						{Port: 80, Protocol: "tcp", Name: "http"},
 					},
 				},
 			},

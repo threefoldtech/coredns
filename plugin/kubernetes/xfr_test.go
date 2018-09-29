@@ -93,7 +93,6 @@ func TestKubernetesXFR(t *testing.T) {
 			t.Errorf("%+v", rec)
 		}
 	}
-
 }
 
 // difference shows what we're missing when comparing two RR slices
