@@ -54,7 +54,6 @@ func ToEndpoints(obj interface{}) interface{} {
 		Name:      end.GetName(),
 		Namespace: end.GetNamespace(),
 		Index:     EndpointsKey(end.GetName(), end.GetNamespace()),
-		IndexIP:   make([]string, len(end.Subsets)),
 		Subsets:   make([]EndpointSubset, len(end.Subsets)),
 	}
 	for i, eps := range end.Subsets {
@@ -87,9 +86,9 @@ func ToEndpoints(obj interface{}) interface{} {
 		e.Subsets[i] = sub
 	}
 
-	for i, eps := range end.Subsets {
+	for _, eps := range end.Subsets {
 		for _, a := range eps.Addresses {
-			e.IndexIP[i] = a.IP
+			e.IndexIP = append(e.IndexIP, a.IP)
 		}
 	}
 
@@ -103,8 +102,9 @@ func (e *Endpoints) CopyWithoutSubsets() *Endpoints {
 		Name:      e.Name,
 		Namespace: e.Namespace,
 		Index:     e.Index,
-		IndexIP:   e.IndexIP,
+		IndexIP:   make([]string, len(e.IndexIP)),
 	}
+	copy(e1.IndexIP, e.IndexIP)
 	return e1
 }
 
