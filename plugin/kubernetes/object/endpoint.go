@@ -61,9 +61,9 @@ func ToEndpoints(obj interface{}) interface{} {
 			Addresses: make([]EndpointAddress, len(eps.Addresses)),
 		}
 		if len(eps.Ports) == 0 {
+			// Add sentinal if there are no ports.
 			sub.Ports = []EndpointPort{{Port: -1}}
 		} else {
-			// Add sentinal if there are no ports.
 			sub.Ports = make([]EndpointPort, len(eps.Ports))
 		}
 
