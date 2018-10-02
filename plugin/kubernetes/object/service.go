@@ -43,7 +43,7 @@ func ToService(obj interface{}) interface{} {
 		// Add sentinal if there are no ports.
 		s.Ports = []api.ServicePort{{Port: -1}}
 	} else {
-		s.Ports = make([]api.ServicePort, len(svs.Spec.Ports))
+		s.Ports = make([]api.ServicePort, len(svc.Spec.Ports))
 		copy(s.Ports, svc.Spec.Ports)
 	}
 
