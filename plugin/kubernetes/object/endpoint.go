@@ -54,10 +54,22 @@ func ToEndpoints(obj interface{}) interface{} {
 		Name:      end.GetName(),
 		Namespace: end.GetNamespace(),
 		Index:     EndpointsKey(end.GetName(), end.GetNamespace()),
+		IndexIP:   make([]string, len(end.Subsets)),
+		Subsets:   make([]EndpointSubset, len(end.Subsets)),
 	}
-	for _, eps := range end.Subsets {
-		sub := EndpointSubset{}
-		for _, a := range eps.Addresses {
+	for i, eps := range end.Subsets {
+		sub := EndpointSubset{
+			Addresses: make([]EndpointAddress, len(eps.Addresses)),
+		}
+
+		if len(eps.Ports) == 0 {
+			sub.Ports = []EndpointPort{{Port: -1}}
+		} else {
+			// Add sentinal if there are no ports.
+			sub.Ports = make([]EndpointPort, len(eps.Ports))
+		}
+
+		for j, a := range eps.Addresses {
 			ea := EndpointAddress{IP: a.IP, Hostname: a.Hostname}
 			if a.NodeName != nil {
 				ea.NodeName = *a.NodeName
@@ -65,22 +77,20 @@ func ToEndpoints(obj interface{}) interface{} {
 			if a.TargetRef != nil {
 				ea.TargetRefName = a.TargetRef.Name
 			}
-			sub.Addresses = append(sub.Addresses, ea)
+			sub.Addresses[j] = ea
 		}
-		for _, p := range eps.Ports {
+
+		for k, p := range eps.Ports {
 			ep := EndpointPort{Port: p.Port, Name: p.Name, Protocol: string(p.Protocol)}
-			sub.Ports = append(sub.Ports, ep)
+			sub.Ports[k] = ep
 		}
-		// Add sentinal is there are no ports.
-		if len(eps.Ports) == 0 {
-			sub.Ports = []EndpointPort{{Port: -1}}
-		}
-		e.Subsets = append(e.Subsets, sub)
+
+		e.Subsets[i] = sub
 	}
 
-	for _, eps := range end.Subsets {
+	for i, eps := range end.Subsets {
 		for _, a := range eps.Addresses {
-			e.IndexIP = append(e.IndexIP, a.IP)
+			e.IndexIP[i] = a.IP
 		}
 	}
 
@@ -109,20 +119,24 @@ func (e *Endpoints) DeepCopyObject() runtime.Object {
 		Namespace: e.Namespace,
 		Index:     e.Index,
 		IndexIP:   make([]string, len(e.IndexIP)),
+		Subsets:   make([]EndpointSubset, len(e.Subsets)),
 	}
 	copy(e1.IndexIP, e.IndexIP)
 
-	for _, eps := range e.Subsets {
-		sub := EndpointSubset{}
-		for _, a := range eps.Addresses {
+	for i, eps := range e.Subsets {
+		sub := EndpointSubset{
+			Addresses: make([]EndpointAddress, len(eps.Addresses)),
+			Ports:     make([]EndpointPort, len(eps.Ports)),
+		}
+		for j, a := range eps.Addresses {
 			ea := EndpointAddress{IP: a.IP, Hostname: a.Hostname, NodeName: a.NodeName, TargetRefName: a.TargetRefName}
-			sub.Addresses = append(sub.Addresses, ea)
+			sub.Addresses[j] = ea
 		}
-		for _, p := range eps.Ports {
+		for k, p := range eps.Ports {
 			ep := EndpointPort{Port: p.Port, Name: p.Name, Protocol: p.Protocol}
-			sub.Ports = append(sub.Ports, ep)
+			sub.Ports[k] = ep
 		}
-		e1.Subsets = append(e.Subsets, sub)
+		e1.Subsets[i] = sub
 	}
 	return e1
 }

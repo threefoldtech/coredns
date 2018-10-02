@@ -43,11 +43,14 @@ func (dns *dnsControl) sendPodUpdates(p *object.Pod) {
 
 func (dns *dnsControl) sendEndpointsUpdates(ep *object.Endpoints) {
 	for _, zone := range dns.zones {
-		names := append(endpointFQDN(ep, zone, dns.endpointNameMode), serviceFQDN(ep, zone))
-		for _, name := range names {
+		for _, name := range endpointFQDN(ep, zone, dns.endpointNameMode) {
 			if _, ok := dns.watched[name]; ok {
 				dns.watchChan <- name
 			}
+		}
+		name := serviceFQDN(ep, zone)
+		if _, ok := dns.watched[name]; ok {
+			dns.watchChan <- name
 		}
 	}
 }
