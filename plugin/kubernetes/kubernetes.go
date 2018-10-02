@@ -397,7 +397,7 @@ func (k *Kubernetes) findPods(r recordRequest, zone string) (pods []msg.Service,
 		}
 
 		// exclude pods in the process of termination
-		if !p.DeletionTimestamp.IsZero() {
+		if p.Deleting {
 			continue
 		}
 

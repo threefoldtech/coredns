@@ -1,19 +1,17 @@
 package object
 
 import (
-	"time"
-
 	api "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 )
 
 // Pod is a stripped down api.Pod with only the items we need for CoreDNS.
 type Pod struct {
-	Version           string
-	PodIP             string
-	Name              string
-	Namespace         string
-	DeletionTimestamp time.Time
+	Version   string
+	PodIP     string
+	Name      string
+	Namespace string
+	Deleting  bool
 
 	*Empty
 }
@@ -33,7 +31,7 @@ func ToPod(obj interface{}) interface{} {
 	}
 	t := pod.ObjectMeta.DeletionTimestamp
 	if t != nil {
-		p.DeletionTimestamp = (*t).Time
+		p.Deleting = !(*t).Time.IsZero()
 	}
 
 	return p
@@ -44,11 +42,11 @@ var _ runtime.Object = &Pod{}
 // DeepCopyObject implements the ObjectKind interface.
 func (p *Pod) DeepCopyObject() runtime.Object {
 	p1 := &Pod{
-		Version:           p.Version,
-		PodIP:             p.PodIP,
-		Namespace:         p.Namespace,
-		Name:              p.Name,
-		DeletionTimestamp: p.DeletionTimestamp,
+		Version:   p.Version,
+		PodIP:     p.PodIP,
+		Namespace: p.Namespace,
+		Name:      p.Name,
+		Deleting:  p.Deleting,
 	}
 	return p1
 }
