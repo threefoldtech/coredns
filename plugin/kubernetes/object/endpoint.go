@@ -61,7 +61,6 @@ func ToEndpoints(obj interface{}) interface{} {
 		sub := EndpointSubset{
 			Addresses: make([]EndpointAddress, len(eps.Addresses)),
 		}
-
 		if len(eps.Ports) == 0 {
 			sub.Ports = []EndpointPort{{Port: -1}}
 		} else {
@@ -136,6 +135,7 @@ func (e *Endpoints) DeepCopyObject() runtime.Object {
 			ep := EndpointPort{Port: p.Port, Name: p.Name, Protocol: p.Protocol}
 			sub.Ports[k] = ep
 		}
+
 		e1.Subsets[i] = sub
 	}
 	return e1
