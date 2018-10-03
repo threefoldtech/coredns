@@ -47,6 +47,8 @@ func ToService(obj interface{}) interface{} {
 		copy(s.Ports, svc.Spec.Ports)
 	}
 
+	svc = nil
+
 	return s
 }
 

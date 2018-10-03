@@ -92,6 +92,8 @@ func ToEndpoints(obj interface{}) interface{} {
 		}
 	}
 
+	end = nil
+
 	return e
 }
 
