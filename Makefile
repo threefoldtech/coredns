@@ -12,7 +12,7 @@ all: coredns
 
 .PHONY: coredns
 coredns: $(CHECKS)
-	CGO_ENABLED=0 $(SYSTEM) go build $(VERBOSE) -ldflags="-s -w -X github.com/threefoldtech/coredns/coremain.GitCommit=$(GITCOMMIT)" -o $(BINARY)
+	CGO_ENABLED=0 $(SYSTEM) go build $(VERBOSE) -ldflags="-s -w -X github.com/coredns/coredns/coremain.GitCommit=$(GITCOMMIT)" -o $(BINARY)
 
 .PHONY: check
 check: presubmit core/zplugin.go core/dnsserver/zdirectives.go godeps
